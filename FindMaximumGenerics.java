@@ -1,20 +1,37 @@
 package com.bridgelabz;
 
-public class FindMaximumGenerics
+public class FindMaximumGenerics<T extends Comparable<T>>
 {
-   public static <T extends Comparable<T>> T maximum (T x, T y, T z ){
-       T max =x;      //assume x is max
-       if (y.compareTo(max) > 0)
-           max = y;
-       if (z.compareTo(max) > 0)
-           max = z;
-       return max;
+    T x;
+    T y;
+    T z;
+
+    FindMaximumGenerics(T x, T y, T z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+   public T maximum (){
+
+       if (x.compareTo(y) > 0) {
+           return x;
+       } else if (y.compareTo(z) > 0) {
+           return y;
+       }else{
+           return z;
+       }
    }
 
     public static void main(String[] args) {
+        FindMaximumGenerics Integer = new FindMaximumGenerics(10, 20, 30);
+        System.out.println("Maximum number out of three integers is: " + Integer.maximum());
 
-        System.out.println(maximum(10,20,30));
-        System.out.println(maximum(2.5f, 6.5f, 8.5f));
-        System.out.println(maximum("Apple", "Mango", "Banana"));
+        FindMaximumGenerics Float = new FindMaximumGenerics(2.5f, 6.5f, 8.5f);
+        System.out.println("Maximum number out of three float is: "    +  Float.maximum());
+
+        FindMaximumGenerics String = new FindMaximumGenerics("Apple", "Mango", "Banana");
+        System.out.println("Maximum number out of three string is: "   +  String.maximum());
     }
 }
+
