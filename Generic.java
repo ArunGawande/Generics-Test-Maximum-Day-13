@@ -18,9 +18,18 @@ public class Generic
             max = z;
         return max;
     }
+    public static String stringMaximum(String x, String y, String z){
+        String max =x;
+        if (y.compareTo(max) > 0)
+            max = y;
+        if (z.compareTo(max) > 0)
+            max = z;
+        return max;
+    }
     public static void main(String[] args) {
 
         System.out.println(maximum(10,20,30));
         System.out.println(floatMaximum(2.5f, 6.5f, 8.5f));
+        System.out.println(stringMaximum("Apple", "Mango", "Banana"));
     }
 }
